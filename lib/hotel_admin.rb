@@ -1,3 +1,7 @@
+require_relative 'room'
+require_relative 'block_rooms'
+require_relative 'reservation'
+
 module HotelBooking
   class HotelAdmin
 
