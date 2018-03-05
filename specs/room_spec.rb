@@ -3,7 +3,7 @@ require_relative 'spec_helper'
 describe "Room class" do
   describe "initialize" do
     before do
-      @room_one = HotelBooking::Room.new(1, 200.00)
+      @room_one = HotelBooking::Room.new(1)
     end
 
     it "can create a new instance of Room" do
@@ -25,12 +25,7 @@ describe "Room class" do
     it "requires a positive id" do
       # common sense dictates that you wouldn't have a room with a negative id
 
-      proc { HotelBooking::Room.new(-5, 200.00) }.must_raise ArgumentError
-    end
-
-    it "requires a positive cost" do
-
-      proc { HotelBooking::Room.new(1, -200.00) }.must_raise ArgumentError
+      proc { HotelBooking::Room.new(-5) }.must_raise ArgumentError
     end
   end
 end

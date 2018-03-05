@@ -3,17 +3,13 @@ module HotelBooking
 
     attr_reader :id, :cost
 
-    def initialize(id, cost)
+    def initialize(id)
       unless id > 0
         raise ArgumentError.new("ID must be a positive number.")
       end
-
-      unless cost > 0
-        raise ArgumentError.new("Cost must be a positive number.")
-      end
-
+      
       @id = id
-      @cost = cost
+      @cost = 200.00
     end
 
   end
