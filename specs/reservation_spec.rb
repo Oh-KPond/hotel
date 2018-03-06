@@ -1,6 +1,7 @@
 require_relative 'spec_helper'
 
 describe "Reservation class" do
+
   describe "initialize" do
     before do
       first_night = '2018-10-3'
@@ -20,11 +21,13 @@ describe "Reservation class" do
 
     end
   end
+
+  describe "rooms_availible" do
+    # using date, this should find and return a collection of availible rooms
+    # throw error if no rooms availible for date
+  end
 end
 
-
-# reservation should create reservations
-# reservation should have an id, start date for reservation, number of nights booked
 # reservation should caluate total cost of reservation
 # keep track what rooms are booked for a reservation
 # keep track of dates a room is booked
