@@ -7,6 +7,7 @@ describe "Hotel Admin class" do
     end
 
     it "establishes the base data structures when instantiated" do
+
       @admin.must_be_instance_of HotelBooking::HotelAdmin
 
       @admin.must_respond_to :all_rooms
@@ -17,6 +18,14 @@ describe "Hotel Admin class" do
       @admin.all_blocks.must_be_kind_of Array
       @admin.reservations.must_be_kind_of Array
 
+    end
+
+    it "creates a collection of all_rooms" do
+
+      @admin.all_rooms.first.must_be_instance_of HotelBooking::Room
+
+      @admin.all_rooms.first.id.must_equal 1
+      @admin.all_rooms.last.id.must_equal 20
     end
   end
 end
