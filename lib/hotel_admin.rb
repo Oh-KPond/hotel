@@ -25,20 +25,24 @@ module HotelBooking
     end
 
     def find_room(id)
-      room = @all_rooms.select {|single_room| single_room.id == id}
+      check_id(id)
 
-      if room.empty?
-        raise ArgumentError.new("That is an invalid room")
-      end
-
-      return room
+      @all_rooms.select {|single_room| single_room.id == id}
     end
 
     def make_reservation(reservation)
-      
+
       @reservations << reservation
 
       return reservation
+    end
+
+    private
+
+    def check_id(id)
+      if id == nil || id <= 0 || id > 20
+        raise ArgumentError.new("Room ID cannot be blank , more than 20, or less than zero. (got #{id})")
+      end
     end
   end
 end
