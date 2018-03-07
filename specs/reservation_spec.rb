@@ -6,8 +6,8 @@ describe "Reservation class" do
     before do
       first_night = '2018-10-3'
       num_nights = 3
-      rooms = [1,3]
-      @reservation = HotelBooking::Reservation.new(first_night, num_nights, rooms)
+      room = 1
+      @reservation = HotelBooking::Reservation.new(first_night, num_nights, room)
     end
 
     it "establishes the base data structures when instantiated" do
@@ -16,11 +16,11 @@ describe "Reservation class" do
 
       @reservation.must_respond_to :start_date
       @reservation.must_respond_to :num_nights
-      @reservation.must_respond_to :rooms
+      @reservation.must_respond_to :room
 
       @reservation.start_date.must_be_kind_of Date
       @reservation.num_nights.must_be_kind_of Integer
-      @reservation.rooms.must_be_kind_of Array
+      @reservation.room.must_be_kind_of Integer
 
     end
   end
