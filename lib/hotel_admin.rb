@@ -34,14 +34,8 @@ module HotelBooking
       return room
     end
 
-    def make_reservation(first_night, num_nights, room)
-
-      unless @all_rooms.any? {|single_room| single_room.id == room}
-        raise ArgumentError.new("That is an invalid room")
-      end
-# binding.pry
-      reservation = HotelBooking::Reservation.new(first_night, num_nights, room)
-
+    def make_reservation(reservation)
+      
       @reservations << reservation
 
       return reservation
