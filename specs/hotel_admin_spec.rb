@@ -29,6 +29,26 @@ describe "Hotel Admin class" do
     end
   end
 
+  describe "find_room" do
+    before do
+      @admin = HotelBooking::HotelAdmin.new
+    end
+    it "finds room by id" do
+
+      room10 = @admin.find_room(10)
+
+      room10.first.must_be_instance_of HotelBooking::Room
+
+      room10.first.id.must_equal 10
+      room10.first.cost.must_equal 200.00
+    end
+
+    it "raises an ArgumentError is room do not exist" do
+
+    proc {@admin.find_room(30)}.must_raise ArgumentError
+    end
+  end
+
   describe "make_reservation" do
     before do
       @admin = HotelBooking::HotelAdmin.new

@@ -24,9 +24,19 @@ module HotelBooking
 
     end
 
+    def find_room(id)
+      room = @all_rooms.select {|single_room| single_room.id == id}
+
+      if room.empty?
+        raise ArgumentError.new("That is an invalid room")
+      end
+
+      return room
+    end
+
     def make_reservation(first_night, num_nights, room)
 
-      unless @all_rooms.find {|single_room| single_room.id == room}
+      unless @all_rooms.any? {|single_room| single_room.id == room}
         raise ArgumentError.new("That is an invalid room")
       end
 # binding.pry
