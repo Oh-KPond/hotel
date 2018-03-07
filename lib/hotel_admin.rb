@@ -14,8 +14,8 @@ module HotelBooking
     def initialize
 
       all_rooms = []
-      (1..NUMBER_OF_ROOMS).each do |num|
-        all_rooms << HotelBooking::Room.new(num)
+      (1..NUMBER_OF_ROOMS).each do |id|
+        all_rooms << HotelBooking::Room.new(id)
       end
 
       @all_rooms = all_rooms
