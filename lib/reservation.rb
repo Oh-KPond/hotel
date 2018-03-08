@@ -10,6 +10,7 @@ module HotelBooking
     COST_PER_NIGHT = 200.00
 
     def initialize(first_night:, night_count:, room:)
+      check_night_count(night_count)
 
       start_date = Date.parse(first_night)
 
@@ -19,7 +20,12 @@ module HotelBooking
       @dates = [start_date]
 
       dates_generator
+    end
 
+    def check_night_count(num)
+      if num <= 0
+        raise ArgumentError.new("The number of nights for a reservation can not be less than 1. Recieved #{num}")
+      end
     end
 
     def dates_generator
