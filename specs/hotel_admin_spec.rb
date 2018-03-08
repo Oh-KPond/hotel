@@ -57,9 +57,9 @@ describe "Hotel Admin class" do
     it "creates a new reservation" do
       first_night = '2018-10-3'
       num_nights = 3
-      room = 1
+      room_id = 1
 
-      reservation = @admin.make_reservation(HotelBooking::Reservation.new(first_night, num_nights, room))
+      reservation = @admin.make_reservation(HotelBooking::Reservation.new(first_night, num_nights, room_id))
 
       reservation.must_be_instance_of HotelBooking::Reservation
     end
@@ -67,9 +67,9 @@ describe "Hotel Admin class" do
     it "throws error if room is not valid room in hotel" do
       first_night = '2018-10-3'
       num_nights = 3
-      room = 30
+      room_id = 30
 
-      proc {@admin.make_reservation(first_night, num_nights, room)}.must_raise ArgumentError
+      proc {@admin.make_reservation(first_night, num_nights, room_id)}.must_raise ArgumentError
 
     end
   end
