@@ -19,13 +19,29 @@ describe "Reservation class" do
       @reservation.must_respond_to :start_date
       @reservation.must_respond_to :num_nights
       @reservation.must_respond_to :room
-      @reservation.must_respond_to :date_range
+      @reservation.must_respond_to :dates
 
       @reservation.start_date.must_be_kind_of Date
       @reservation.num_nights.must_be_kind_of Integer
       @reservation.room.must_be_kind_of Integer
-      @reservation.date_range.must_be_kind_of Array
+      @reservation.dates.must_be_kind_of Array
 
+    end
+  end
+
+  describe "dates generator" do
+    it "creates a collection of dates for reservation" do
+      new_reservation = {
+        first_night: '2018-10-3',
+        num_nights: 3,
+        room: 1
+      }
+      reservation = HotelBooking::Reservation.new(new_reservation)
+
+      reservation.dates.must_be_kind_of Array
+      reservation.dates.first.must_be_kind_of Date
+      reservation.dates.first.must_equal Date.parse('2018-10-3')
+      reservation.dates.last.must_equal Date.parse('2018-10-5')
     end
   end
 

@@ -1,9 +1,11 @@
 require 'date'
 
+require "pry"
+
 module HotelBooking
   class Reservation
 
-    attr_reader :start_date, :num_nights, :room, :date_range
+    attr_reader :start_date, :num_nights, :room, :dates
 
     COST_PER_NIGHT = 200.00
 
@@ -14,7 +16,21 @@ module HotelBooking
       @start_date = start_date
       @num_nights = num_nights
       @room = room
-      @date_range = []
+      @dates = [start_date]
+
+      dates_generator
+
     end
+
+    def dates_generator
+
+      (@num_nights - 1).times do
+        date = @start_date += 1
+        @dates << date
+      end
+
+      return dates
+    end
+
   end
 end
