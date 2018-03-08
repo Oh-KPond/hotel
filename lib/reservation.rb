@@ -5,16 +5,16 @@ require "pry"
 module HotelBooking
   class Reservation
 
-    attr_reader :start_date, :num_nights, :room, :dates
+    attr_reader :start_date, :night_count, :room, :dates
 
     COST_PER_NIGHT = 200.00
 
-    def initialize(first_night:, num_nights:, room:)
+    def initialize(first_night:, night_count:, room:)
 
       start_date = Date.parse(first_night)
 
       @start_date = start_date
-      @num_nights = num_nights
+      @night_count = night_count
       @room = room
       @dates = [start_date]
 
@@ -24,7 +24,7 @@ module HotelBooking
 
     def dates_generator
 
-      (@num_nights - 1).times do
+      (@night_count - 1).times do
         date = @start_date += 1
         @dates << date
       end
