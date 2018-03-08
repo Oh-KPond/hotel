@@ -49,6 +49,20 @@ describe "Reservation class" do
       reservation.dates.first.must_equal Date.parse('2018-10-3')
       reservation.dates.last.must_equal Date.parse('2018-10-5')
     end
+
+    it "returns array of one date if only one night" do
+      new_reservation = {
+        first_night: '2018-10-3',
+        night_count: 1,
+        room: 1
+      }
+
+      reservation = HotelBooking::Reservation.new(new_reservation)
+
+      reservation.dates.length.must_equal 1
+      reservation.dates.first.must_be_kind_of Date
+      reservation.dates.must_be_kind_of Array
+    end
   end
 
   describe "total reservation cost" do
