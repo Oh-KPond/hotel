@@ -3,7 +3,7 @@ require 'date'
 module HotelBooking
   class Reservation
 
-    attr_reader :start_date, :num_nights, :room
+    attr_reader :start_date, :num_nights, :room, :date_range
 
     COST_PER_NIGHT = 200.00
 
@@ -14,6 +14,7 @@ module HotelBooking
       @start_date = start_date
       @num_nights = num_nights
       @room = room
+      @date_range = []
     end
   end
 end
