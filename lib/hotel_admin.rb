@@ -30,8 +30,15 @@ module HotelBooking
       @all_rooms.select {|single_room| single_room.id == id}
     end
 
-    def make_reservation(reservation)
+    def make_reservation(first_night, num_nights, room_id)
+      new_reservation ={
+        first_night: first_night,
+        num_nights: num_nights,
+        room: find_room(room_id)
+      }
 
+      reservation = Reservation.new(new_reservation)
+      
       @reservations << reservation
 
       return reservation

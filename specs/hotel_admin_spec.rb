@@ -59,7 +59,7 @@ describe "Hotel Admin class" do
       num_nights = 3
       room_id = 1
 
-      reservation = @admin.make_reservation(HotelBooking::Reservation.new(first_night, num_nights, room_id))
+      reservation = @admin.make_reservation(first_night, num_nights, room_id)
 
       reservation.must_be_instance_of HotelBooking::Reservation
     end

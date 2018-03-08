@@ -5,13 +5,13 @@ module HotelBooking
 
     attr_reader :start_date, :num_nights, :room
 
-    def initialize(first_night, num_nights, room_id)
+    def initialize(first_night:, num_nights:, room:)
 
       start_date = Date.parse(first_night)
 
       @start_date = start_date
       @num_nights = num_nights
-      @room = room_id
+      @room = room
     end
   end
 end
