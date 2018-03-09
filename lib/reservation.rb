@@ -38,5 +38,9 @@ module HotelBooking
       return dates
     end
 
+    def total_cost
+      (@night_count * COST_PER_NIGHT)
+    end
+
   end
 end

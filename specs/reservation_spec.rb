@@ -65,18 +65,16 @@ describe "Reservation class" do
     end
   end
 
-  describe "total reservation cost" do
-    before do
+  describe "total cost" do
+    it "caluates the total cost of a reservation" do
       new_reservation = {
         first_night: '2018-10-3',
         night_count: 3,
         room: 1
       }
-      @reservation = HotelBooking::Reservation.new(new_reservation)
-    end
+      reservation = HotelBooking::Reservation.new(new_reservation)
 
-    it "caluates the total cost of a reservation" do
-
+      reservation.total_cost.must_equal 600.00
     end
   end
 
@@ -85,6 +83,7 @@ describe "Reservation class" do
     # throw error if no rooms availible for date
   end
 end
+
 
 # reservation should caluate total cost of reservation
 # keep track what rooms are booked for a reservation
