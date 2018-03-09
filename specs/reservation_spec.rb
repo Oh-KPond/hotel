@@ -33,6 +33,26 @@ describe "Reservation class" do
 
       proc {HotelBooking::Reservation.new(new_reservation)}.must_raise ArgumentError
     end
+
+    it "raises an error if a reservation start date is before today" do
+      new_reservation = {
+        first_night: '2000-10-3',
+        night_count: 0,
+        room: 1
+      }
+
+      proc {HotelBooking::Reservation.new(new_reservation)}.must_raise ArgumentError
+    end
+
+    it "raises an error if a reservation start date is invalid format" do
+      new_reservation = {
+        first_night: '10-2018-356',
+        night_count: 0,
+        room: 1
+      }
+
+      proc {HotelBooking::Reservation.new(new_reservation)}.must_raise ArgumentError
+    end
   end
 
   describe "dates generator" do

@@ -70,7 +70,7 @@ describe "Hotel Admin class" do
     it "finds a collection of reservations for a date" do
 
       @admin.find_reservations_by_date('2018-10-3').must_be_kind_of Array
-      @admin.find_reservations_by_date('2018-10-3').first.room.must_equal 20
+      @admin.find_reservations_by_date('2018-10-3').first.room.must_equal [20]
     end
 
     it "raises an error for an invalid date" do
