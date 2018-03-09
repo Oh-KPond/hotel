@@ -72,10 +72,6 @@ describe "Hotel Admin class" do
       @admin.find_reservations_by_date('2018-10-3').must_be_kind_of Array
       @admin.find_reservations_by_date('2018-10-3').first.room.must_equal [20]
     end
-
-    it "raises an error for an invalid date" do
-
-    end
   end
   # availible rooms
     # finds reservations by date... makes an array of rooms in those find_reservations_by_date
