@@ -44,7 +44,7 @@ module HotelBooking
     private
 
     def check_id(id)
-      if id == nil || id <= 0 || id > 20
+      if id == nil || id <= 0 || id > NUMBER_OF_ROOMS
         raise ArgumentError.new("Room ID cannot be blank , more than 20, or less than zero. (got #{id})")
       end
     end
