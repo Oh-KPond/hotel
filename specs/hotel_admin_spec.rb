@@ -50,6 +50,19 @@ describe "Hotel Admin class" do
       room_id = 30
 
       proc {@admin.make_reservation(first_night, night_count, room_id)}.must_raise ArgumentError
+    end
+  end
+
+  describe "find_reservations_by_date" do
+    it "finds a reservation by date" do
+
+    end
+
+    it "finds a collection of reservations for a date" do
+
+    end
+
+    it "raises an error for an invalid date" do
 
     end
   end

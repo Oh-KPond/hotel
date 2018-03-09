@@ -28,6 +28,10 @@ module HotelBooking
       @all_rooms.select {|single_room| single_room == id}
     end
 
+    def find_reservations_by_date(date)
+
+    end
+
     def make_reservation(first_night, night_count, room_id)
 
       new_reservation ={
