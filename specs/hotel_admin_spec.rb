@@ -66,6 +66,10 @@ describe "Hotel Admin class" do
 
     end
   end
+  # availible rooms
+    # finds reservations by date... makes an array of rooms in those find_reservations_by_date
+    # finds room id not in that array that is a valid room id (or finds all room ids in reservations found.. orders them and then )
+
 end
 
 # the hotel admin should start by seeing all the rooms, all the blocks, and all of the reservations
