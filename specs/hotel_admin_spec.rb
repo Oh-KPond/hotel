@@ -71,6 +71,7 @@ describe "Hotel Admin class" do
 
       @admin.find_reservations_by_date('2018-10-3').must_be_kind_of Array
       @admin.find_reservations_by_date('2018-10-3').first.room.must_equal [20]
+      @admin.find_reservations_by_date('2018-10-3').last.room.must_equal [3]
     end
   end
   # availible rooms
@@ -78,5 +79,3 @@ describe "Hotel Admin class" do
     # finds room id not in that array that is a valid room id (or finds all room ids in reservations found.. orders them and then )
 
 end
-
-# the hotel admin should start by seeing all the rooms, all the blocks, and all of the reservations
