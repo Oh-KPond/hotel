@@ -29,7 +29,11 @@ module HotelBooking
     end
 
     def find_reservations_by_date(date)
-      search_date = Date.parse(date)
+      begin
+        search_date = Date.parse(date)
+      rescue ArgumentError => exception
+        puts "Could not convert date to Date class: #{exception}"
+      end
 
       @reservations.find_all { |reservation| reservation.dates.find {|dates| dates == search_date} }
     end
