@@ -37,7 +37,7 @@ describe "Reservation class" do
     it "raises an error if a reservation start date is before today" do
       new_reservation = {
         first_night: '2000-10-3',
-        night_count: 0,
+        night_count: 5,
         room: 1
       }
 

@@ -12,13 +12,9 @@ module HotelBooking
     def initialize(first_night:, night_count:, room:)
       check_night_count(night_count)
 
-      begin
-        start_date = Date.parse(first_night)
-      rescue ArgumentError => exception
-        puts "Could not convert date to Date class: #{exception}"
-      end
+      start_date = Date.parse(first_night)
 
-      unless start_date > Date.today
+      unless start_date >= Date.today
         raise ArgumentError.new("Room can not be reserved for a date before today.")
       end
 
