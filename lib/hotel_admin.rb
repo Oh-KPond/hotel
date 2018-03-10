@@ -22,11 +22,6 @@ module HotelBooking
       @reservations = []
     end
 
-    def find_room(id)
-      check_id(id)
-
-      @all_rooms.select {|single_room| single_room == id}
-    end
 
     def find_reservations_by_date(date)
       begin
@@ -39,11 +34,12 @@ module HotelBooking
     end
 
     def make_reservation(first_night, night_count, room_id)
-
+      check_id(room_id)
+      
       new_reservation ={
         first_night: first_night,
         night_count: night_count,
-        room: find_room(room_id)
+        room: room_id
       }
 
       reservation = Reservation.new(new_reservation)

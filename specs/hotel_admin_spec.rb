@@ -70,8 +70,21 @@ describe "Hotel Admin class" do
     it "finds a collection of reservations for a date" do
 
       @admin.find_reservations_by_date('2018-10-3').must_be_kind_of Array
-      @admin.find_reservations_by_date('2018-10-3').first.room.must_equal [20]
-      @admin.find_reservations_by_date('2018-10-3').last.room.must_equal [3]
+      @admin.find_reservations_by_date('2018-10-3').first.room.must_equal 20
+      @admin.find_reservations_by_date('2018-10-3').last.room.must_equal 3
+    end
+  end
+
+  describe "find_availiblity_by_dates" do
+    before do
+      @admin = HotelBooking::HotelAdmin.new
+
+      @admin.make_reservation('2018-10-2', 2, 20)
+      @admin.make_reservation('2018-10-3', 2, 1)
+      @admin.make_reservation('2018-10-3', 2, 2)
+      @admin.make_reservation('2018-10-3', 2, 3)
+      @admin.make_reservation('2018-11-5', 2, 1)
+      @admin.make_reservation('2018-12-6', 2, 1)
     end
   end
   # availible rooms
