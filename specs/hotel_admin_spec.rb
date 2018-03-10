@@ -94,7 +94,6 @@ describe "Hotel Admin class" do
       rooms_availible.must_be_kind_of Array
       rooms_availible[0].must_equal 4
       rooms_availible.length.must_equal 16
-
     end
   end
   # availible rooms

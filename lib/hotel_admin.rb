@@ -31,6 +31,16 @@ module HotelBooking
       @reservations.find_all { |reservation| reservation.dates.include?(search_date) }
     end
 
+    def find_availiblity(first_night, night_count)
+
+      # TODO: if night count is greater than one generate dates loop though generated dates to create an array of array. Flatten arrays, remove duplicates with .uniq
+      reservations = find_reservations(first_night)
+      booked_rooms = reservations.map { |reservation| reservation.room }
+      availible_rooms = @all_rooms - booked_rooms
+
+      return availible_rooms
+    end
+
     def make_reservation(first_night, night_count, room_id)
       check_id(room_id)
 
@@ -43,10 +53,6 @@ module HotelBooking
       reservation = Reservation.new(new_reservation)
       @reservations << reservation
       return reservation
-    end
-
-    def find_availiblity(first_night, night_count)
-
     end
 
     private
