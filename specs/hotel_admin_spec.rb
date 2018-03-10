@@ -89,6 +89,12 @@ describe "Hotel Admin class" do
 
     it "returns a collection of rooms that are not assoicated with a reservation" do
 
+      rooms_availible = @admin.find_availiblity('2018-10-3', 1)
+
+      rooms_availible.must_be_kind_of Array
+      rooms_availible[0].must_equal 4
+      rooms_availible.length.must_equal 16
+
     end
   end
   # availible rooms
