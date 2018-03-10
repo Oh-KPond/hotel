@@ -28,7 +28,7 @@ module HotelBooking
         search_date = Date.parse(date)
       end
 
-      @reservations.find_all { |reservation| reservation.dates.find {|dates| dates == search_date} }
+      @reservations.find_all { |reservation| reservation.dates.include?(search_date) }
     end
 
     def make_reservation(first_night, night_count, room_id)
