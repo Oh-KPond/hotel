@@ -24,8 +24,9 @@ module HotelBooking
 
 
     def find_reservations(date)
-
-      search_date = Date.parse(date)
+      unless date.instance_of? Date
+        search_date = Date.parse(date)
+      end
 
       @reservations.find_all { |reservation| reservation.dates.find {|dates| dates == search_date} }
     end
@@ -42,6 +43,10 @@ module HotelBooking
       reservation = Reservation.new(new_reservation)
       @reservations << reservation
       return reservation
+    end
+
+    def find_availiblity(first_night, night_count)
+
     end
 
     private
