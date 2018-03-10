@@ -23,7 +23,7 @@ module HotelBooking
     end
 
 
-    def find_reservations_by_date(date)
+    def find_reservations(date)
       begin
         search_date = Date.parse(date)
       rescue ArgumentError => exception
@@ -35,7 +35,7 @@ module HotelBooking
 
     def make_reservation(first_night, night_count, room_id)
       check_id(room_id)
-      
+
       new_reservation ={
         first_night: first_night,
         night_count: night_count,

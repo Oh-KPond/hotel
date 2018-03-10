@@ -55,7 +55,7 @@ describe "Hotel Admin class" do
     end
   end
 
-  describe "find_reservations_by_date" do
+  describe "find_reservations by date" do
     before do
       @admin = HotelBooking::HotelAdmin.new
 
@@ -69,13 +69,13 @@ describe "Hotel Admin class" do
 
     it "finds a collection of reservations for a date" do
 
-      @admin.find_reservations_by_date('2018-10-3').must_be_kind_of Array
-      @admin.find_reservations_by_date('2018-10-3').first.room.must_equal 20
-      @admin.find_reservations_by_date('2018-10-3').last.room.must_equal 3
+      @admin.find_reservations('2018-10-3').must_be_kind_of Array
+      @admin.find_reservations('2018-10-3').first.room.must_equal 20
+      @admin.find_reservations('2018-10-3').last.room.must_equal 3
     end
   end
 
-  describe "find_availiblity_by_dates" do
+  describe "find_availiblity by date" do
     before do
       @admin = HotelBooking::HotelAdmin.new
 
@@ -86,9 +86,13 @@ describe "Hotel Admin class" do
       @admin.make_reservation('2018-11-5', 2, 1)
       @admin.make_reservation('2018-12-6', 2, 1)
     end
+
+    it "returns a collection of rooms that are not assoicated with a reservation" do
+
+    end
   end
   # availible rooms
-    # finds reservations by date... makes an array of rooms in those find_reservations_by_date
+    # finds reservations by date... makes an array of rooms in those find_reservations
     # finds room id not in that array that is a valid room id (or finds all room ids in reservations found.. orders them and then )
 
 end
