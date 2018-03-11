@@ -100,6 +100,7 @@ describe "Hotel Admin class" do
       @admin.make_reservation('2018-10-3', 2, 1)
       @admin.make_reservation('2018-10-3', 2, 2)
       @admin.make_reservation('2018-10-3', 2, 3)
+      @admin.make_reservation('2018-10-4', 1, 4)
       @admin.make_reservation('2018-11-5', 2, 1)
       @admin.make_reservation('2018-12-6', 2, 1)
 
@@ -107,7 +108,6 @@ describe "Hotel Admin class" do
         room_id += 1
         @admin.make_reservation('2018-12-9', 2, room_id)
       end
-
     end
 
     it "returns a collection of rooms that are not assoicated with a reservation" do
@@ -117,6 +117,14 @@ describe "Hotel Admin class" do
       rooms_availible.must_be_kind_of Array
       rooms_availible[0].must_equal 4
       rooms_availible.length.must_equal 16
+    end
+
+    it "returns a collection of rooms availble for a date range" do
+      rooms_availible = @admin.find_availiblity('2018-10-3', 4)
+
+      rooms_availible.must_be_kind_of Array
+      rooms_availible[0].must_equal 5
+      rooms_availible.length.must_equal 15
     end
 
     it "returns an empty array of there are no rooms_availible" do
