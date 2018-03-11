@@ -21,9 +21,8 @@ module HotelBooking
       @start_date = start_date
       @night_count = night_count
       @room = room
-      @dates = [start_date]
+      @dates = dates_generator(night_count, start_date)
 
-      dates_generator
     end
 
     def check_night_count(num)
@@ -32,11 +31,11 @@ module HotelBooking
       end
     end
 
-    def dates_generator
-
-      (@night_count - 1).times do
-        date = @start_date += 1
-        @dates << date
+    def dates_generator(night_count, start_date)
+      dates = [start_date]
+      (night_count - 1).times do
+        date = start_date += 1
+        dates << date
       end
 
       return dates
