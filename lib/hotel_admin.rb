@@ -43,6 +43,10 @@ module HotelBooking
 
     def make_reservation(first_night, night_count, room_id)
       check_id(room_id)
+      availible_rooms = find_availiblity(first_night, night_count)
+      unless availible_rooms.include?(room_id)
+        raise ArgumentError.new("#{room_id} is not availible the availble rooms are #{availible_rooms}")
+      end
 
       new_reservation ={
         first_night: first_night,
@@ -59,7 +63,7 @@ module HotelBooking
 
     def check_id(id)
       if id == nil || id <= 0 || id > NUMBER_OF_ROOMS
-        raise ArgumentError.new("Room ID cannot be blank , more than 20, or less than zero. (got #{id})")
+        raise ArgumentError.new("Room ID cannot be blank, more than 20, or less than zero. (got #{id})")
       end
     end
   end

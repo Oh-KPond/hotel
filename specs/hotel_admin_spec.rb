@@ -53,6 +53,16 @@ describe "Hotel Admin class" do
 
       proc {@admin.make_reservation(first_night, night_count, room_id)}.must_raise ArgumentError
     end
+
+    it "raises an error if requested room is not availble" do
+      @admin.make_reservation('2018-10-3', 1, 1)
+
+      first_night = '2018-10-3'
+      night_count = 1
+      room_id = 1
+
+      proc {@admin.make_reservation(first_night, night_count, room_id)}.must_raise ArgumentError
+    end
   end
 
   describe "find_reservations by date" do
