@@ -73,6 +73,13 @@ describe "Hotel Admin class" do
       @admin.find_reservations('2018-10-3').first.room.must_equal 20
       @admin.find_reservations('2018-10-3').last.room.must_equal 3
     end
+
+    it "returns an empty array of there are no reservations for a date" do
+
+      @admin.find_reservations('2019-1-3').must_be_kind_of Array
+      @admin.find_reservations('2019-1-3').must_equal []
+      @admin.find_reservations('2019-1-3').length.must_equal 0
+    end
   end
 
   describe "find_availiblity by date" do
